@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FightHeart 1.21.4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: #4CAF50; /* Green theme */
+            --secondary-color: #45a049;
+            --text-color: #1f2937;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            color: white;
+            padding: 0 5%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .server-ip {
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .server-ip:hover {
+            background: rgba(0,0,0,0.5);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-button.discord {
+            background-color: #5865F2;
+        }
+
+        .cta-button.discord:hover {
+            background-color: #4752C4;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .features {
+            padding: 5rem 5%;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">FightHeart</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="https://discord.gg/HXjKkbg9EQ" target="_blank">Discord</a>
+        </div>
+        <div class="menu-toggle">☰</div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to FightHeart</h1>
+            <p>The Ultimate Minecraft Experience</p>
+            <div class="server-ip" onclick="copyIP()">Server IP: FightHeart.minehut.gg</div>
+            <div class="cta-buttons">
+                <a href="https://minehut.com" class="cta-button">Play Now</a>
+                <a href="https://discord.gg/HXjKkbg9EQ" class="cta-button discord" target="_blank">
+                    <span>🎮</span> Join Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2>Server Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Epic PvP Battles</h3>
+                <p>Engage in thrilling player vs player combat with custom kits and arenas</p>
+            </div>
+            <div class="feature-card">
+                <h3>Survival Mode</h3>
+                <p>Build, explore, and survive in our enhanced survival world</p>
+            </div>
+            <div class="feature-card">
+                <h3>Daily Events</h3>
+                <p>Participate in regularly scheduled tournaments and special events</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 FightHeart Minecraft Server. All rights reserved.</p>
+        <p>Server IP: FightHeart.minehut.gg</p>
+    </footer>
+
+    <script>
+        function copyIP() {
+            const ip = 'FightHeart.minehut.gg';
+            navigator.clipboard.writeText(ip);
+            alert('Server IP copied to clipboard!');
+        }
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
