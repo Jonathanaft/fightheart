@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Join BrutalFun</title>
+</head>
+<body>
+    <h1>Enter minehut.gg</h1>
+    <p>Copy the command in your clipboard to join our old server</p>
+    <button onclick="copyCommand()">Copy Command</button>
+
+    <script>
+        function copyCommand() {
+            navigator.clipboard.writeText('/join brutalfun').then(() => {
+                alert('Command copied to clipboard!');
+            }).catch(err => {
+                alert('Failed to copy command. Please try again.');
+                console.error(err);
+            });
+        }
+    </script>
+</body>
+</html>
